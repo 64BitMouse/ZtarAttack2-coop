@@ -169,7 +169,8 @@ local function hud_render()
     end
     if _G.OmmEnabled then 
         djui_hud_set_color(color.r, color.g, color.b, 255)
-    djui_hud_print_text("INFINITE", x + 16, y + 5, 0.8)
+    --djui_hud_print_text("INFINITE", x + 16, y + 5, 0.8)
+    djui_hud_render_texture(get_texture_info("infinity"), x + 16, y + 12, 0.8, 0.8)
     else
     djui_hud_set_color(color.r, color.g, color.b, 255)
     djui_hud_print_text(tostring(hud_get_value(HUD_DISPLAY_LIVES)), x + 16, y + 5, 0.8)
