@@ -79,7 +79,7 @@ local CHECKPOINT = audio_sample_load("SMW_Checkpoint.ogg")
 local function on_interact(m, o, type)
     local np = gNetworkPlayers[0]
 local blacklistedLevels = blacklistCheckpoint[np.currLevelNum]
-    if type == INTERACT_STAR_OR_KEY and get_id_from_behavior(o.behavior) and not blacklistedLevels then
+    if type == INTERACT_STAR_OR_KEY and get_id_from_behavior(o.behavior) ~=  id_bhvBowserKey and not blacklistedLevels then
         audio_sample_play(CHECKPOINT, m.pos, 5)
         spawn_sync_object(id_bhvCheckpoint, E_MODEL_CHECKPOINT, m.pos.x, m.pos.y, m.pos.z, bhv_checkpoint_init)
     end
