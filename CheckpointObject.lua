@@ -64,10 +64,22 @@ end
 
 id_bhvCheckpoint = hook_behavior(nil, OBJ_LIST_LEVEL, false, bhv_checkpoint_init, bhv_checkpoint_loop, "bhvCheckpoint")
 
+local blacklistCheckpoint = {
+    [LEVEL_COTMC] = true, -- World 3-4
+    [LEVEL_VCUTM] = true,-- World 4-4
+    [LEVEL_TOTWC] = true, -- World 5-5
+    [LEVEL_SA] = true, -- World S
+    [LEVEL_ENDING] = true, -- Ending
+    [LEVEL_PSS] = true, -- Super Quiz Area
+    [LEVEL_BOWSER_1] = true, -- World 1-4 Boss
+    [LEVEL_BOWSER_2] = true, -- World 2-4 Boss
+}
 local CHECKPOINT = audio_sample_load("SMW_Checkpoint.ogg")
 
 local function on_interact(m, o, type)
-    if type == INTERACT_STAR_OR_KEY and get_id_from_behavior(o.behavior) ~= id_bhvBowserKey then
+    local np = gNetworkPlayers[0]
+local blacklistedLevels = blacklistCheckpoint[np.currLevelNum]
+    if type == INTERACT_STAR_OR_KEY and get_id_from_behavior(o.behavior) and not blacklistedLevels then
         audio_sample_play(CHECKPOINT, m.pos, 5)
         spawn_sync_object(id_bhvCheckpoint, E_MODEL_CHECKPOINT, m.pos.x, m.pos.y, m.pos.z, bhv_checkpoint_init)
     end

@@ -2,6 +2,7 @@
 -- Custom Hud Written by Squishy6094 >.< --
 -------------------------------------------
 
+
 local function lerp(a, b, t)
     return a * (1 - t) + b * t
 end
@@ -223,5 +224,6 @@ local function hud_render()
         end
     end
 end
+
 
 hook_event(HOOK_ON_HUD_RENDER_BEHIND, hud_render)

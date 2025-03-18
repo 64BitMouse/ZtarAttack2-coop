@@ -2,6 +2,9 @@
 -- description: Mario must travel back in time to when the very first Ztar Attack began on the Mushroom Kingdom to stop it before it reaches the present (\\#0c33c2\\Ztar Attack \\#deb307\\1.5\\#ffffff\\). Collect the 91 Time Stars in this linear 2D platformer-styled adventure to rid the positive realm of the Ztars!\n\n Original Hack by TheGael95\n\n Port by \\#2d851c\\Mr.Needlemouse\\#ffffff\\\n\nKaze MOPs and other custom behaviors done by \\#de8ad1\\Sunk
 -- incompatible: romhack
 
+
+
+
 local first_run = true
 local function mario_life_update()
     if first_run then
@@ -9,6 +12,7 @@ local function mario_life_update()
         first_run = false
     end
 end
+
 
 ---@param m MarioState
 local function general_stuff_update(m)
