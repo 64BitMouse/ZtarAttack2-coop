@@ -167,9 +167,13 @@ local function hud_render()
     else
         djui_hud_render_texture(lifeIcons[gMarioStates[0].character.type], x, y, 1.5, 1.5)
     end
+    if _G.OmmEnabled then 
+        djui_hud_set_color(color.r, color.g, color.b, 255)
+    djui_hud_print_text("INFINITE", x + 16, y + 5, 0.8)
+    else
     djui_hud_set_color(color.r, color.g, color.b, 255)
     djui_hud_print_text(tostring(hud_get_value(HUD_DISPLAY_LIVES)), x + 16, y + 5, 0.8)
-
+    end
     local x = 10
     local y = 42
     if levelWorlds[np.currLevelNum] ~= nil  and gNetworkPlayers[0].currLevelNum ~= LEVEL_WMOTR then
