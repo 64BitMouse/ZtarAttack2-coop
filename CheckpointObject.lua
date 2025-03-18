@@ -65,8 +65,6 @@ end
 id_bhvCheckpoint = hook_behavior(nil, OBJ_LIST_LEVEL, false, bhv_checkpoint_init, bhv_checkpoint_loop, "bhvCheckpoint")
 
 local blacklistCheckpoint = {
-    [LEVEL_COTMC] = true, -- World 3-4
-    [LEVEL_VCUTM] = true,-- World 4-4
     [LEVEL_TOTWC] = true, -- World 5-5
     [LEVEL_SA] = true, -- World S
     [LEVEL_ENDING] = true, -- Ending
